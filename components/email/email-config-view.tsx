@@ -838,10 +838,10 @@ export function EmailConfigView({
                           </div>
                           <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                             {template.subject
-                              .replaceAll(/\{eventTitle\}/g, 'Sample Event 2024')
-                              .replaceAll(/\{participantName\}/g, 'John Doe')
-                              .replaceAll(/\{certificateId\}/g, 'CERT-2024-001')
-                              .replaceAll(/\{eventDate\}/g, 'September 17, 2024')}
+                              .replaceAll('{eventTitle}', 'Sample Event 2024')
+                              .replaceAll('{participantName}', 'John Doe')
+                              .replaceAll('{certificateId}', 'CERT-2024-001')
+                              .replaceAll('{eventDate}', 'September 17, 2024')}
                           </div>
                         </div>
                       </div>
@@ -857,19 +857,10 @@ export function EmailConfigView({
                             dangerouslySetInnerHTML={{
                               __html: scopeTemplateStyles(
                                 template.html
-                                  .replaceAll(
-                                    /\{eventTitle\}/g,
-                                    'Sample Event 2024'
-                                  )
-                                  .replaceAll(/\{participantName\}/g, 'John Doe')
-                                  .replaceAll(
-                                    /\{certificateId\}/g,
-                                    'CERT-2024-001'
-                                  )
-                                  .replaceAll(
-                                    /\{eventDate\}/g,
-                                    'September 17, 2024'
-                                  )
+                                  .replaceAll('{eventTitle}', 'Sample Event 2024')
+                                  .replaceAll('{participantName}', 'John Doe')
+                                  .replaceAll('{certificateId}', 'CERT-2024-001')
+                                  .replaceAll('{eventDate}', 'September 17, 2024')
                               ),
                             }}
                           />
@@ -884,10 +875,10 @@ export function EmailConfigView({
                         <div className="border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900/50 p-4">
                           <div className="text-xs font-mono whitespace-pre-wrap text-gray-800 dark:text-gray-200 max-h-[150px] overflow-y-auto">
                             {template.text
-                              .replaceAll(/\{eventTitle\}/g, 'Sample Event 2024')
-                              .replaceAll(/\{participantName\}/g, 'John Doe')
-                              .replaceAll(/\{certificateId\}/g, 'CERT-2024-001')
-                              .replaceAll(/\{eventDate\}/g, 'September 17, 2024')}
+                              .replaceAll('{eventTitle}', 'Sample Event 2024')
+                              .replaceAll('{participantName}', 'John Doe')
+                              .replaceAll('{certificateId}', 'CERT-2024-001')
+                              .replaceAll('{eventDate}', 'September 17, 2024')}
                           </div>
                         </div>
                       </div>
