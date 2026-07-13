@@ -16,7 +16,8 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --ci --coverage --watchAll=false",
     "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e",
-    "install:test": "npm install --legacy-peer-deps"
+    "install:test": "npm install --legacy-peer-deps",
+    "sonar": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
