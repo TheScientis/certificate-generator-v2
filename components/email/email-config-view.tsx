@@ -189,7 +189,7 @@ export function EmailConfigView({
 
   const [config, setConfig] = useState<IEmailConfig>({
     smtpHost: process.env.SMTP_HOST || '',
-    smtpPort: parseInt(process.env.SMTP_PORT || '587'),
+    smtpPort: Number.parseInt(process.env.SMTP_PORT || '587'),
     smtpSecure: false,
     smtpUser: process.env.SMTP_USER || '',
     smtpPass: process.env.SMTP_PASS || '',
@@ -564,7 +564,7 @@ export function EmailConfigView({
                     type="number"
                     value={config.smtpPort}
                     onChange={(e) =>
-                      handleConfigChange('smtpPort', parseInt(e.target.value))
+                      handleConfigChange('smtpPort', Number.parseInt(e.target.value))
                     }
                     placeholder="587"
                   />
@@ -838,10 +838,10 @@ export function EmailConfigView({
                           </div>
                           <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                             {template.subject
-                              .replace(/\{eventTitle\}/g, 'Sample Event 2024')
-                              .replace(/\{participantName\}/g, 'John Doe')
-                              .replace(/\{certificateId\}/g, 'CERT-2024-001')
-                              .replace(/\{eventDate\}/g, 'September 17, 2024')}
+                              .replaceAll(/\{eventTitle\}/g, 'Sample Event 2024')
+                              .replaceAll(/\{participantName\}/g, 'John Doe')
+                              .replaceAll(/\{certificateId\}/g, 'CERT-2024-001')
+                              .replaceAll(/\{eventDate\}/g, 'September 17, 2024')}
                           </div>
                         </div>
                       </div>
@@ -857,16 +857,16 @@ export function EmailConfigView({
                             dangerouslySetInnerHTML={{
                               __html: scopeTemplateStyles(
                                 template.html
-                                  .replace(
+                                  .replaceAll(
                                     /\{eventTitle\}/g,
                                     'Sample Event 2024'
                                   )
-                                  .replace(/\{participantName\}/g, 'John Doe')
-                                  .replace(
+                                  .replaceAll(/\{participantName\}/g, 'John Doe')
+                                  .replaceAll(
                                     /\{certificateId\}/g,
                                     'CERT-2024-001'
                                   )
-                                  .replace(
+                                  .replaceAll(
                                     /\{eventDate\}/g,
                                     'September 17, 2024'
                                   )
@@ -884,10 +884,10 @@ export function EmailConfigView({
                         <div className="border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900/50 p-4">
                           <div className="text-xs font-mono whitespace-pre-wrap text-gray-800 dark:text-gray-200 max-h-[150px] overflow-y-auto">
                             {template.text
-                              .replace(/\{eventTitle\}/g, 'Sample Event 2024')
-                              .replace(/\{participantName\}/g, 'John Doe')
-                              .replace(/\{certificateId\}/g, 'CERT-2024-001')
-                              .replace(/\{eventDate\}/g, 'September 17, 2024')}
+                              .replaceAll(/\{eventTitle\}/g, 'Sample Event 2024')
+                              .replaceAll(/\{participantName\}/g, 'John Doe')
+                              .replaceAll(/\{certificateId\}/g, 'CERT-2024-001')
+                              .replaceAll(/\{eventDate\}/g, 'September 17, 2024')}
                           </div>
                         </div>
                       </div>

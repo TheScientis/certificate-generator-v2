@@ -120,7 +120,7 @@ export function BulkEmailActions({
           description: `Successfully sent ${result.sent} emails. ${
             result.failed > 0 ? `${result.failed} failed.` : ''
           }`,
-          variant: result.failed > 0 ? 'default' : 'default',
+          variant: result.failed > 0 ? 'destructive' : 'default',
         });
       } else {
         toast({
