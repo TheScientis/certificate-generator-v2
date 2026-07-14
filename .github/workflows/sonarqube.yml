@@ -27,12 +27,7 @@ jobs:
         continue-on-error: true # Melanjutkan ke proses scan meskipun test ada yang gagal, agar SonarQube tetap mendapat laporannya
 
       - name: SonarQube Scan & Check Quality Gate
-        # Menggabungkan semua konfigurasi ke dalam satu perintah eksekusi
-        # Perhatikan penggunaan karakter ">" untuk memecah perintah panjang ke baris baru agar rapi
-        run: >
-          npx sonar-scanner 
-          -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
-          -Dsonar.token="${{ secrets.SONAR_TOKEN }}" 
-          -Dsonar.projectKey=certificate-generator 
-          -Dsonar.branch.name="${{ github.head_ref || github.ref_name }}" 
-          -Dsonar.qualitygate.wait=true
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: npx sonar-scanner -Dsonar.projectKey=certificate-generator "-Dsonar.branch.name=${{ github.head_ref || github.ref_name }}" -Dsonar.qualitygate.wait=true
