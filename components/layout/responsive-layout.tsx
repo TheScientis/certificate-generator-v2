@@ -80,9 +80,17 @@ export function ResponsiveLayout({
 
       {/* Mobile Sidebar Overlay */}
       {isMobileMenuOpen && !isDesktop && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === 'Escape' || e.key === ' ') {
+              setIsMobileMenuOpen(false);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close sidebar menu"
         />
       )}
 
