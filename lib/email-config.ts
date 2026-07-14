@@ -5,7 +5,7 @@ import { IEmailConfig, IEmailTemplate } from './types';
  */
 export const DEFAULT_EMAIL_CONFIG: IEmailConfig = {
   smtpHost: process.env.SMTP_HOST || 'smtp.gmail.com',
-  smtpPort: parseInt(process.env.SMTP_PORT || '587'),
+  smtpPort: Number.parseInt(process.env.SMTP_PORT || '587'),
   smtpSecure: process.env.SMTP_SECURE === 'true',
   smtpUser: process.env.SMTP_USER || '',
   smtpPass: process.env.SMTP_PASS || '',
@@ -177,7 +177,7 @@ export function validateEmailConfig(config: Partial<IEmailConfig>): {
  * Validate email address format
  */
 function isValidEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{1,24}$/;
   return emailRegex.test(email);
 }
 
@@ -187,7 +187,7 @@ function isValidEmail(email: string): boolean {
 export function loadEmailConfigFromEnv(): IEmailConfig {
   return {
     smtpHost: process.env.SMTP_HOST || DEFAULT_EMAIL_CONFIG.smtpHost,
-    smtpPort: parseInt(
+    smtpPort: Number.parseInt(
       process.env.SMTP_PORT || DEFAULT_EMAIL_CONFIG.smtpPort.toString()
     ),
     smtpSecure: process.env.SMTP_SECURE === 'true',

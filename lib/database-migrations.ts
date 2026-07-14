@@ -260,7 +260,7 @@ export async function validateEmailDataIntegrity(db: Db): Promise<{
             'participants.email': {
               $exists: true,
               $ne: '',
-              $not: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              $not: /^[^\s@]{1,64}@[^\s@]{1,255}\.[^\s@]{1,24}$/,
             },
           },
         },

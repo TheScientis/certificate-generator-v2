@@ -26,3 +26,7 @@ jobs:
 
       - name: SonarQube Scan
         run: npx sonar-scanner "-Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}" "-Dsonar.token=${{ secrets.SONAR_TOKEN }}"
+
+
+      - name: Run Sonar Scanner
+        run: sonar-scanner -Dsonar.branch.name=${{ github.ref_name }}
