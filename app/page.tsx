@@ -223,12 +223,9 @@ export default function Home() {
             prev.map((e) => (e._id === fullEvent._id ? fullEvent : e))
           );
           // Use full event for navigation check
-          if (fullEvent.template.base64) {
-            navigateView(viewList.template);
-          } else {
-            navigateView(viewList.template);
-          }
+          navigateView(viewList.template);
           return;
+
         }
       } catch (err) {
         console.error('Error loading full event data:', err);
