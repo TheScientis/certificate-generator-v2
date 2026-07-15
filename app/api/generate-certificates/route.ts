@@ -3,7 +3,7 @@ import { generateCertificate } from '@/lib/canvas-utils';
 import { parseCSV } from '@/lib/csv-utils';
 import { ITextConfig } from '@/lib/types';
 import archiver from 'archiver';
-import { Readable } from 'stream';
+import { Readable } from 'node:stream';
 
 export async function POST(request: NextRequest) {
   try {
